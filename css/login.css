@@ -1,0 +1,716 @@
+html
+{
+	height:100%;
+
+}
+  ::-webkit-scrollbar {
+  width: 5px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px black; 
+  border-radius: 10px;
+  background-color:#d4d3db;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background:red;
+  transition:0.5s;  
+  border-radius: 10px 10px 10px 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:active 
+{
+  background: #252525;
+  transition:0.5s;
+}
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.fileinput:active
+{
+	box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.0);
+	transition:0s;
+}
+.fileinput:hover > .custominput
+{
+	color:#00eeff;
+	transition:0.5s ease-in-out;
+}
+.custominput
+{
+	width:90%;
+    display: inline-block;
+    padding:10px;
+    cursor: pointer;
+}
+.element-to-paste-filename
+{
+	font-size:1vw;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	overflow: hidden;
+}
+body {
+
+	overflow-x: auto;
+	overflow-y:auto;
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  background: linear-gradient(-45deg, #EE7752,#E73C7E,#23A6D5,#23D5AB);
+  background-size:400% 400%;
+  width:100%;
+  height:100vh;
+  animation:flow 10s ease-in-out infinite;
+}
+@keyframes flow
+{
+	 0%
+	 {
+		 background-position:0 50%;
+	 }
+	 50%
+	 {
+		 background-position:100% 50%;
+	 }
+	 100%
+	 {
+		 background-position:0 50%;
+	 }
+	 
+}
+
+input, button {
+  border: none;
+  outline: none;
+ font-family:calibri;
+}
+
+
+
+
+.loginbtn {
+  background-color:rgba(255,0,0,0.9);
+  box-shadow:0px 8px 16px rgba(255,0,0,0.5);
+  border-radius:20px;
+  color: white;
+  border: none;
+  cursor: pointer;
+ 
+  font-family:"Calibri";
+  transition:0.5 ease;
+  
+}
+
+.loginbtn:hover {
+	box-shadow: 0px 8px 16px rgba(255,0,0,0.7);
+	background-color: rgba(255,0,0,0.9);
+	
+}
+.loginbtn:active
+{
+	box-shadow: 0px 0px 0px rgba(255,0,0,0);
+	background-color: rgba(255,0,0,0.0);
+	transition: 0s;
+}
+.closebtncontainter
+{
+	position:relative;
+	width:100%;
+	height:10%;
+	text-align:right;
+	background-color:transparent;
+}
+.closebtn
+{
+	position:relative;
+	color:white;
+	top:50%;
+	font-size:20px;
+	cursor:pointer;
+	transition:0.2s;
+}
+.closebtn:hover
+{
+	color:red;
+}
+.imgcontainer 
+{
+position:relative;
+ width:100%;
+ height:50%;
+ display:flex;
+ justify-content:center;
+ top:0%;
+ background-color:transparent;
+}
+.imgcontainer img
+{
+	top:0%;
+	max-width:40%;
+	max-height:60%;
+	border-radius:100%;
+}
+
+.fallback
+{
+  width: 100%; 
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
+.modal {
+  
+  align-items:center;
+  justify-content:center;
+  display: flex;
+  position: fixed; /* Hidden by default */
+  width: 100%; /* Full width */
+  height: 100%;
+  overflow: hidden; /* Full height */
+  overflow: auto; /* Enable scroll if needed *//* Fallback color */
+   /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {	
+position:absolute;
+  background-color:transparent;
+  color:#d4d3db;
+  min-width:100%;
+  height:100%;
+  /* Could be more or less, depending on screen size */
+}
+.formcontainer
+{
+	position:absolute;
+	height:50%;
+	background-color:transparent;
+	align-items:center;
+    justify-content:center;
+	display:flex;
+	border-radius:10px;
+}
+.formcontainer2
+{
+	position:absolute;
+	background-color:transparent;
+	align-items:center;
+    justify-content:center;
+	display:flex;
+	border-radius:10px;
+}
+@media only screen and (min-width:1201px)
+{
+	.formcontainer
+	{
+		width:20%;
+		height:50%;
+	}
+	.list ul li
+	{
+	margin-bottom:5%;
+	width:100%;
+	font-size:2vh;
+	box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);
+	border-radius:10px;
+	padding:10px;
+	}
+	.close
+	{
+			font-size: 1.2vw;
+	}
+	.list ul li input
+	{
+	font-size:2vh;
+	color:white;
+	background-color:transparent;
+	width:90%;
+	padding:10px;
+	
+	}
+	.formcontainer .loginbtn
+	{
+		font-size:2vh;
+		width: 35%;
+  		height:100%;
+
+	}
+	.formcontainer .closebtncontainter
+	{
+		margin-bottom:5%
+	}
+	.formcontainer .errortext p
+	{
+		font-size:1.8vh;
+	}
+	.formcontainer .errortext 
+	{
+		height:20%;
+		display:flex;
+		align-items:center;
+		justify-content:center;
+	}
+	.formcontainer .loginbtncontainer
+	{
+		display:flex;
+		justify-content:center;
+		align-items:center;
+		width:100%;
+		height:10%;bottom:0%;
+	}
+	.formcontainer2 .loginbtncontainer
+	{
+		display:flex;
+		justify-content:center;
+		align-items:center;
+		width:100%;
+		height:10%;bottom:0%;
+	}
+	.formcontainer2 .closebtncontainter
+	{
+		margin-bottom:5%
+	}
+	.formcontainer2 .loginbtn
+	{
+		font-size:2vh;
+		width: 10%;
+  		height:60%;
+
+	}
+	.closebtn
+	{
+		font-size:2vh;
+	}
+	.formcontainer2
+	{
+		width:80%;
+		height:80%;
+	}
+	.formcontainer2 .errortext p
+	{
+		font-size:1.8vh;
+	}
+	.formcontainer2 .errortext 
+	{
+		height:10%;
+		display:flex;
+		align-items:center;
+		justify-content:center;
+	}
+	.list2 ul li
+	{
+	margin:2%;
+	font-size:2vh;
+	width:20%;
+	box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);
+	border-radius:10px;
+	padding:10px;
+	display:inline-block;
+	}
+	.list2 ul li input
+	{
+	font-size:2vh;
+	color:white;
+	background-color:transparent;
+	width:90%;
+	padding:10px;
+	text-align:center;
+	}
+
+}
+@media only screen and (min-width:1025px) and (max-width:1200px)
+{
+	.formcontainer
+	{
+		width:80%;
+		height:40%;
+	}
+	.list ul li
+	{
+	margin-bottom:5%;
+	width:100%;
+	font-size:2vh;
+	box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);
+	border-radius:10px;
+	padding:40px;
+	}
+	.close
+	{
+			font-size: 2vh;
+	}
+	.list ul li input
+	{
+	font-size:2vh;
+	color:white;
+	background-color:transparent;
+	width:90%;
+	padding:10px;
+	
+	}
+	.formcontainer .loginbtn
+	{
+		font-size:2vh;
+		width: 35%;
+  		height:100%;
+
+	}
+	.formcontainer .closebtncontainter
+	{
+		margin-bottom:5%
+	}
+	.formcontainer .errortext p
+	{
+		font-size:1.8vh;
+	}
+	.formcontainer .errortext 
+	{
+		height:20%;
+		display:flex;
+		align-items:center;
+		justify-content:center;
+	}
+	.formcontainer .loginbtncontainer
+	{
+		display:flex;
+		justify-content:center;
+		align-items:center;
+		width:100%;
+		height:10%;bottom:0%;
+	}
+	.formcontainer2 .loginbtncontainer
+	{
+		display:flex;
+		justify-content:center;
+		align-items:center;
+		width:100%;
+		height:10%;bottom:0%;
+	}
+	.formcontainer2 .closebtncontainter
+	{
+
+		margin-bottom:5%
+	}
+	.formcontainer2 .loginbtn
+	{
+		font-size:2vh;
+		width: 40%;
+  		height:60%;
+
+	}
+	.closebtn
+	{
+		font-size:2vh;
+	}
+	.formcontainer2
+	{
+		width:80%;
+		height:100%;
+	}
+	.formcontainer2 .errortext p
+	{
+		font-size:1.8vh;
+	}
+	.formcontainer2 .errortext 
+	{
+		height:10%;
+		display:flex;
+		align-items:center;
+		justify-content:center;
+	}
+	.list2 ul li
+	{
+	margin-bottom:5%;
+	font-size:2vh;
+	width:100%;
+	box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);
+	border-radius:10px;
+	padding:40px;
+	display:inline-block;
+	}
+	.list2 ul li input
+	{
+	font-size:2vh;
+	color:white;
+	background-color:transparent;
+	width:90%;
+	padding:10px;
+	text-align:center;
+	}
+
+}
+@media only screen and (min-width:721px) and (max-width:1024px)
+{
+	.formcontainer
+	{
+		width:80%;
+		height:40%;
+	}
+	.list ul li
+	{
+	margin-bottom:5%;
+	width:100%;
+	font-size:2vh;
+	box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);
+	border-radius:10px;
+	padding:40px;
+	}
+		.close
+	{
+			font-size: 2vh;
+	}
+	.list ul li input
+	{
+	font-size:2vh;
+	color:white;
+	background-color:transparent;
+	width:90%;
+	padding:10px;
+	
+	}
+	.formcontainer .loginbtn
+	{
+		font-size:2vh;
+		width: 35%;
+  		height:100%;
+
+	}
+	.formcontainer .closebtncontainter
+	{
+		margin-bottom:5%
+	}
+	.formcontainer .errortext p
+	{
+		font-size:1.5vh;
+	}
+	.formcontainer .errortext 
+	{
+		height:20%;
+		display:flex;
+		align-items:center;
+		justify-content:center;
+	}
+	.formcontainer .loginbtncontainer
+	{
+		display:flex;
+		justify-content:center;
+		align-items:center;
+		width:100%;
+		height:10%;bottom:0%;
+	}
+	.formcontainer2 .loginbtncontainer
+	{
+		display:flex;
+		justify-content:center;
+		align-items:center;
+		width:100%;
+		height:10%;bottom:0%;
+	}
+	.formcontainer2 .closebtncontainter
+	{
+		margin-bottom:5%;
+	}
+	.formcontainer2 .loginbtn
+	{
+		font-size:2vh;
+		width: 40%;
+  		height:60%;
+
+	}
+	.closebtn
+	{
+		font-size:2vh;
+	}
+	.formcontainer2
+	{
+		width:80%;
+		height:100%;
+	}
+	.formcontainer2 .errortext p
+	{
+		font-size:1.5vh;
+	}
+	.formcontainer2 .errortext 
+	{
+		height:10%;
+		display:flex;
+		align-items:center;
+		justify-content:center;
+	}
+	.list2 ul li
+	{
+	margin-bottom:5%;
+	font-size:2vh;
+	width:100%;
+	box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);
+	border-radius:10px;
+	padding:40px;
+	display:inline-block;
+	}
+	.list2 ul li input
+	{
+	font-size:2vh;
+	color:white;
+	background-color:transparent;
+	width:90%;
+	padding:10px;
+	text-align:center;
+	}
+
+}
+@media only screen and (min-width:280px) and (max-width:720px) 
+{
+	.formcontainer
+	{
+		width:80%;
+		height:40%;
+	}
+	.list ul li
+	{
+	margin-bottom:5%;
+	width:100%;
+	font-size:2vh;
+	box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);
+	border-radius:10px;
+	padding:40px;
+	}
+		.close
+	{
+			font-size: 2vh;
+	}
+	.list ul li input
+	{
+	font-size:2vh;
+	color:white;
+	background-color:transparent;
+	width:90%;
+	padding:10px;
+	
+	}
+	.formcontainer .loginbtn
+	{
+		font-size:2vh;
+		width: 35%;
+  		height:100%;
+
+	}
+	.formcontainer .closebtncontainter
+	{
+		margin-bottom:5%
+	}
+	.formcontainer .errortext p
+	{
+		font-size:1.5vh;
+	}
+	.formcontainer .errortext 
+	{
+		height:20%;
+		display:flex;
+		align-items:center;
+		justify-content:center;
+	}
+	.formcontainer .loginbtncontainer
+	{
+		display:flex;
+		justify-content:center;
+		align-items:center;
+		width:100%;
+		height:10%;bottom:0%;
+	}
+	.formcontainer2 .loginbtncontainer
+	{
+		display:flex;
+		justify-content:center;
+		align-items:center;
+		width:100%;
+		height:10%;bottom:0%;
+	}
+	.formcontainer2 .closebtncontainter
+	{
+		margin-bottom:5%
+	}
+	.formcontainer2 .loginbtn
+	{
+		font-size:2vh;
+		width: 40%;
+  		height:60%;
+
+	}
+	.closebtn
+	{
+		font-size:2vh;
+	}
+	.formcontainer2
+	{
+		width:80%;
+		height:100%;
+	}
+	.formcontainer2 .errortext p
+	{
+		font-size:1.5vh;
+	}
+	.formcontainer2 .errortext 
+	{
+		height:10%;
+		display:flex;
+		align-items:center;
+		justify-content:center;
+	}
+	.list2 ul li
+	{
+	margin-bottom:5%;
+	font-size:2vh;
+	width:100%;
+	box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);
+	border-radius:10px;
+	padding:40px;
+	display:inline-block;
+	}
+	.list2 ul li input
+	{
+	font-size:2vh;
+	color:white;
+	background-color:transparent;
+	width:90%;
+	padding:10px;
+	text-align:center;
+	}
+}
+
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+.animate1 {
+  -webkit-animation: animatezoomout 0.6s;
+  animation: animatezoomout 0.6s
+}
+
+@-webkit-keyframes animatezoomout {
+  from {-webkit-transform: scale(1)} 
+  to {-webkit-transform: scale(0)}
+  from {opacity: 1}
+  to {opacity: 0}
+}
+  
+@keyframes animatezoomout {
+  from {transform: scale(1)} 
+  to {transform: scale(0)}
+  from {opacity: 1}
+  to {opacity: 0}
+}
