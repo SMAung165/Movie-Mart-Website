@@ -1,33 +1,43 @@
 <!DOCTYPE html>
 <?php include'changepassword.php'?>
 <?php
-if(isset($_FILES['profile'])=== true)
+
+if (isset($_GET['success']) && empty ($_GET['success']))
 {
-	if(empty($_FILES['profile']['name'])=== true)
+	$success[]= 'Your password has been changed successfully.';
+}
+
+
+	if(isset($_FILES['profile'])=== true)
 	{
-		echo 'Please choose a file!';
-	}
-	else
-	{
-		$allowed =array('jpg','jpeg','gif','png');
-		
-		$file_name=$_FILES['profile']['name'];
-		$file_extn= explode('.',$file_name);
-		$file_extension=strtolower(end($file_extn));
-		$file_temp=$_FILES['profile']['tmp_name'];
-		if(in_array($file_extension,$allowed)===true)
+		if(empty($_FILES['profile']['name'])=== true)
 		{
-			
-			upload_profile_image($session_user_id, $file_temp,$file_extension);
-			header('Location: '.$_SERVER['PHP_SELF']); 
+			echo 'Please choose a file!';
 		}
 		else
 		{
-			echo 'Only these file types are allowed: ';
-			echo implode( ', ', $allowed);
+			$allowed =array('jpg','jpeg','gif','png');
+			
+			$file_name=$_FILES['profile']['name'];
+			$file_extn= explode('.',$file_name);
+			$file_extension=strtolower(end($file_extn));
+			$file_temp=$_FILES['profile']['tmp_name'];
+			if(in_array($file_extension,$allowed)===true)
+			{
+				
+				upload_profile_image($session_user_id, $file_temp,$file_extension);
+				header('Location: '.$_SERVER['PHP_SELF']); 
+			}
+			else
+			{
+				$errors[]='Only these file types are allowed: \'jpg, jpeg, gif, png\' ';
+				
+			}
 		}
-	}
-}	
+	}	
+
+
+
 ?>
 <?php 
 if(empty($user_data['bookmark_movie_id'])===true)
@@ -77,6 +87,7 @@ if (isset($_POST['remove_bookmark_btn']))
 <link rel="stylesheet" type="text/css" href="../css/nightmodeswitch.css">
 <link rel="stylesheet" type="text/css" href="../css/Style0.css">
 <link rel="stylesheet" type="text/css" href="../css/Style1.css">
+<link rel="stylesheet" type="text/css" href="../css/main.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 <script src="../Scripts/jquery-ui.js"></script>
 	<script defer src="https://use.fontawesome.com/releases/v5.2.0/js/all.js" integrity="sha384-4oV5EgaV02iISL2ban6c/RmotsABqE4yZxZLcYMAdG7FAPsyHYAPpywE9PJo+Khy" crossorigin="anonymous"></script>
@@ -183,6 +194,7 @@ overflow-x:hidden;
 	.fakebody
 	{
 		margin-left: 210px;
+		height: 100%
 	}
 	.topiccontainer
 	{
@@ -195,6 +207,7 @@ overflow-x:hidden;
 	.fakebody
 	{
 		margin-left:210px;
+		height: 100%;
 	}
 	.topiccontainer
 	{
@@ -207,7 +220,7 @@ overflow-x:hidden;
 	position:relative;
 	display:flex;
 	z-index: 0;
-	height: 100%;
+
 	align-items: center;
 	justify-content: center;
 }
@@ -265,6 +278,14 @@ background-size:400%;
 	background-repeat: no-repeat;
 	display: block;
 }
+.fix_profilecard
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	max-height:420px; 
+	height:420px; 
+}
 .profilecard
 {
 	background-color:transparent;
@@ -274,6 +295,7 @@ background-size:400%;
 	max-height: 250px;
 	border-radius:10px;
 	box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+	font-family: Calibri;
 }
 .responsivecontainer
 {
@@ -302,7 +324,7 @@ background-size:400%;
 {
 	font-weight: lighter;
 }
-.status
+.status div
 {
  background-color: #5efc03;
  width: 15px;
@@ -312,16 +334,22 @@ background-size:400%;
  max-height: 15px;
  box-shadow: 0px 8px 16px rgba(94, 252, 3,0.5);
 }
+.status
+{
+	padding: 12px;
+}
 .statuscontainer
 {
 	text-align: center;
-	display: inline-block;
 	position: relative;
+	display: flex;justify-content: center;
+	align-items: center;
 	background-color: transparent;
 }
-.statuscontainer td p
+.active_status
 {
 	text-shadow: 0px 8px 16px rgba(0,0,0,0.5);
+	padding:0;
 }
 .mobilecontent-container
 {
@@ -348,6 +376,11 @@ background-size:400%;
   border-radius: 10px;
   overflow-y: hidden;
   transition: 0.5s ease-in-out;
+}
+.mobilenavbars
+{
+	align-items: center;
+	justify-content: center;
 }
 
 .mobilenav-overlay-content {
@@ -403,7 +436,104 @@ background-size:400%;
 {
 	padding-top: 0;
 }
+.profile_features
+{
+	width:80%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+.profilecard, .wrap-contact2
+{
+	margin: 5%;
+}
+.wrap-contact2
+{
+	background-color: transparent;
+	box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+	border-radius: 10px;
 
+	/*padding-top:50px;
+	padding-bottom: 50px;*/
+	height:300px;
+	max-height: 300px;
+	width: 300px;
+	max-width: 300px;
+
+
+}
+.wrap-contact2 input
+{
+	background-color: transparent;
+}
+.wrap-contact2-form-btn
+{
+	border-radius: 10px;
+	box-shadow: 0px 8px 16px rgba(0,0,0,0.5);
+	text-align: center;
+	
+}
+.contact2-form-bgbtn
+{	
+	background: linear-gradient(-45deg, #EE7752,#E73C7E,#23A6D5,#23D5AB);
+  background-size:400% 400%;
+	animation:flow 10s ease-in-out infinite;
+}
+@keyframes flow
+{
+	 0%
+	 {
+		 background-position:0 50%;
+	 }
+	 50%
+	 {
+		 background-position:100% 50%;
+	 }
+	 100%
+	 {
+		 background-position:0 50%;
+	 }
+	 
+}
+
+.wrap-contact2-form-btn:active
+{
+	box-shadow: 0px 0px 0px rgba(255,0,0,0);
+	transition:0s;
+}
+.change_image
+{
+	position:absolute;	
+	color: white;
+	cursor: pointer;
+	width: 130px;
+	height: 130px;
+	border-radius: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.file_select
+{
+	font-size: 20px;
+	cursor: pointer;
+	background-color: rgba(0,0,0,0.5);
+	opacity:0;
+	padding:54px;
+	transition: 0.5s ease;
+	border-radius: 100%;
+}
+.file_select:hover
+{
+	opacity: 1;
+
+}
+.file_select:active
+{
+		color:red;
+		transition: 0s;
+}
 </style>
 </head>
 <section title="movbilenav">
@@ -479,13 +609,13 @@ background-size:400%;
 													
 												<div>
 													<div  class="btn">
-														<span><i class="fas fa-user-circle"></i></span>
+														<span><i class="fas fa-bookmark"></i></span>
 														<span>Bookmarks</span>
 														</div>
 												</div>
 												<div>
 													<div  class="btn">
-														<span><i class="fas fa-user-circle"></i></span>
+														<span><i class="fas fa-comment-alt"></i></span>
 														<span>Comments</span>
 													</div>
 												</div>
@@ -534,15 +664,67 @@ background-size:400%;
 							<div class="fakebody">
 
 
-																													
+										<div class="profile_features animate">
+															
+
+											<div class="wrap-contact2">
+															<form method="post" action="<?php echo $_SERVER['PHP_SELF']?>"class="contact2-form validate-form">
+
+																<div class="wrap-input2 validate-input">
+																	<input class="input2" type="password" name="current_password" placeholder="Current Password"required>
+																	<span class="focus-input2"></span>
+																</div>
+
+																<div class="wrap-input2 validate-input">
+																	<input class="input2" type="password" name="password" placeholder="New Password" required>
+																	<span class="focus-input2"></span>
+																</div>
+
+																<div class="wrap-input2 validate-input">
+																	<input class="input2" type="password" name="confirm_password"  placeholder="Confirm New Password"required>
+																	<span class="focus-input2"></span>
+																</div>
+																
+
+																<div class="container-contact2-form-btn">
+																	<div class="wrap-contact2-form-btn">
+																		<div class="contact2-form-bgbtn"></div>
+																		<button type="submit" name="change_password_btn" class="contact2-form-btn ">
+																			Submit
+																		</button>
+																	</div>
+																</div>
+															</form>
+															<div style="margin-top:10px;">
+																<?php echo output_errors($errors);echo output_success($success);?>
+															</div>
+														</div>
+
+
+
+											<div class="fix_profilecard">		
 										<div class="profilecard">
 											<div class="imagecontainer">
 												<div class="crop">
+													<form class="change_image" method="post" action="<?php echo $_SERVER['PHP_SELF']?>" enctype="multipart/form-data">
+														<label class="custominput">
+																
+   																<input style="display: none" type="file" onchange="form.submit()" name="profile"/>
+   															
+   																<div class="file_select"><i class="fas fa-user-edit"></i></div>
+   																<!-- <p class="element-to-paste-filename">
+   																</p> -->
+   																
+   																</label>
+														</form>
 													<?php if(empty($user_data['profile'])=== false)
 													{
 													echo "<img src='".$user_data['profile']."'".">";
 													}?>
+														
 												</div>
+
+											
 											</div>
 															<div class="containerfooter">
 																	<div class="">
@@ -561,23 +743,23 @@ background-size:400%;
 																		</p>
 																	</div>
 															</div>
-															<div align="center">
-															<table align="center" class="statuscontainer">
-																<tr>
-																	<td>
-																		<div class="status">
-																		</div>
-																	</td>
-																	<td>
-																		<p>
-																			Online
-																		</p>
-																	</td>
-																</tr>
-															</table>
+															<div>
+															<div class="statuscontainer">
+																
+																		<div class="status"><div></div></div>
+																		<div class="active_status">Online</div>
+														
+															</div>
 														</div>
 
 														</div>
+															</div>
+														
+
+														
+
+
+													</div>
 
 
 
@@ -658,7 +840,7 @@ function show_nav()
 	{
 		if (viewport.matches) 
 		{
-				navbars.style.display='block';
+				navbars.style.display='flex';
 				toggle_mobile_nav.style.backgroundColor='white';
 		}
 		else
@@ -692,7 +874,7 @@ function open_mobilenav() {
 }
 
 $('input[type=file]').change(function (e) {
-    $(this).parents('.custominput').find('.element-to-paste-filename').text(e.target.files[0].name);
+    $(this).parents('"custom_input').find('.element-to-paste-filename').text(e.target.files[0].name);
 });
 
 const toggleSwitch = document.querySelector('.switch input[type="checkbox"]');
@@ -727,7 +909,7 @@ if (currentTheme) {
         toggleSwitch.checked = true;
     }
 }
-var profile=document.getElementsByClassName("profilecard")[0];
+var profile=document.getElementsByClassName("profile_features")[0];
 var bookmarks=document.getElementsByClassName("bookmarks")[0];
 var a =document.getElementsByClassName("btn");
   a[0].addEventListener("click", function()
@@ -736,7 +918,7 @@ var a =document.getElementsByClassName("btn");
   	a[0].className += " active";
   	a[1].classList.remove("active");
   	a[2].classList.remove("active");
-  	profile.style.display="block";
+  	profile.style.display="flex";
   	bookmarks.style.display="none";
   });
   a[1].addEventListener("click", function()
@@ -756,7 +938,7 @@ var a =document.getElementsByClassName("btn");
   	a[1].classList.remove("active");
   	a[3].classList.remove("active");
   	a[4].classList.remove("active");
-  	profile.style.display="block";
+  	profile.style.display="flex";
   	bookmarks.style.display="none";
 
   });

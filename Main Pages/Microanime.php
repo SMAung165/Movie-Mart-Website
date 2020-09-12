@@ -91,6 +91,7 @@ if (isset($_POST['bookmarkbtn']))
 							
 							<div id="fb-root"></div>
 			<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v8.0" nonce="nRsoHqq5"></script>
+
 							<script defer src="https://use.fontawesome.com/releases/v5.2.0/js/all.js" integrity="sha384-4oV5EgaV02iISL2ban6c/RmotsABqE4yZxZLcYMAdG7FAPsyHYAPpywE9PJo+Khy" crossorigin="anonymous"></script>
 							
 						</head>
@@ -101,7 +102,7 @@ if (isset($_POST['bookmarkbtn']))
 									<!-- <a href="Microanime.html" class="logo">Movie
 									<text class="changecolor" style="">Mart</text></a>
 				 -->
-										<a href="../ContactFrom/index.php">
+										<a href="../ContactFrom_v2/index.html">
 											<text>C</text>ontact
 										</a>
 										<a href="List.php">
@@ -196,19 +197,30 @@ if (isset($_POST['bookmarkbtn']))
 											</div>
 											</td>
 													<td style="background-color:none;width:90%;">
-												<div class="header-right">
+									<div class="header-right">
 													
 														
-														<div class="volumecontainer"><a id="volume" onclick="toggle()"><i class="fas fa-volume-up"></i></a></div>
-												<div class="usercontainer"><a class="signin" href="#" onclick="document.getElementById('id01').style.display='block'">
+														<div style="" class="volumecontainer"><a id="volume" onclick="toggle()"><i class="fas fa-volume-up"></i></a></div>
+										<div class="usercontainer"><a class="signin" href="#" onclick="document.getElementById('id01').style.display='block'">
 													<i class="fas fa-user"></i>
 												</i>
-											</a></div>
-													<div class="sharecontainer"><a class="sharebtn" href="soe12345678.smas@gmail.com"><i class="fas fa-share-alt"></i></a></div>
+											</a>
+										</div>
+					
+
+
+
 													
-												</div>
+										</div>
 											
-													</td>
+												</td>
+												<td>
+						<div class="sharecontainer">
+						<div class="fb-share-button" data-href="http://moviemart.epizy.com" data-layout="button_count" data-size="small"><a target="_blank" href="	https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fmoviemart.epizy.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share
+							</a>
+						</div>
+					</div>
+												</td>
 													</tr>
 													</table>
 													

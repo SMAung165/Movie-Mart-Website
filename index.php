@@ -6,8 +6,10 @@ include ('widgets/login.php');
 ?>
 <html lang="en">
 
-
+<head>
 	<title>Movie Mart</title>
+	<link rel="icon" href="icons/Logo player.png">
+</head>
 	<style>
 .cover
 {

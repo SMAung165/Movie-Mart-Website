@@ -11,22 +11,22 @@ function sanitize($data)
 }
 function output_usernameerrors($usernameerror)
 {
- return '<br>'.'<p style="color:red;font-size:10px;text-align:center;">'.implode('<br>',$usernameerror).'</p>';
+ return '<p style="color:red;font-size:10px;text-align:center;">'.implode('<br>',$usernameerror).'</p>';
 }
 function output_passworderrors($passworderror)
 {
- return '<br>'.'<p style="color:red;font-size:10px;text-align:center;">'.implode($passworderror,'<br>').'</p>';
+ return '<p style="color:red;font-size:10px;text-align:center;">'.implode($passworderror,'<br>').'</p>';
 }
 function output_errors($errors)
 {
- return '<br>'.'<p style="margin:0;color:red;text-align:center;">'.implode('<br>',$errors).'</p>';
+ return '<p style="margin:0;color:red;text-align:center;">'.implode('<br>',$errors).'</p>';
 }
 function output_reg_errors($reg_errors)
 {
- return '<br>'.'<p style="margin:0;color:red;text-align:center;">'.implode('<br>',$reg_errors).'</p>';
+ return '<p style="margin:0;color:red;text-align:center;">'.implode('<br>',$reg_errors).'</p>';
 }
 function output_success($success)
 {
- return '<br>'.'<p style="margin:0;color:red;text-align:center;">'.implode('<br>',$success).'</p>';
+ return '<p style="margin:0;color:green;text-align:center;">'.implode('<br>',$success).'</p>';
 }
 ?>

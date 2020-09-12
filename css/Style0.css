@@ -220,21 +220,33 @@ z-index:1;
   color:#d4d3db;
   transition:.4s ease;
 }
-
+.theme-switch-wrapper
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 .home:hover
 {
 	color:red;
 	transition:.4s ease;
-}.sharebtn,.signin{color:grey;cursor:pointer;}
+}.sharebtn,.signin{color:grey;cursor:pointer;display: flex;width: 100%;height: 100%;justify-content: center;align-items: center;}
 .sharebtn:hover
 {
 	color:red;
 	transition:.4s ease;
 }
 .barcontainer{background-color:transparent;display:flex;justify-content:center;align-items:center;padding:12px;width:100%;}
-.usercontainer,.sharecontainer{position:relative;padding:12px;background-color:transparent;width:20px;height:20px;display:flex;justify-content:center;align-items:center;}
+.usercontainer{position:relative;padding:12px;background-color:transparent;width:20px;height:20px;display:flex;justify-content:center;align-items:center;}
+.sharecontainer
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transform:translate(-0%,-12%);
+}
 .volumecontainer{position:relative;width:20px;height:20px;background-color:transparent;display:flex;justify-content:center;align-items:center;padding:12px;}
-#volume{padding:12px;position:relative;cursor:pointer;background-color:Grey;color:white;width:2%;height:2%;border-radius:100%;font-size:70%;display:flex;align-items:center;justify-content:center;}
+#volume{padding:12px;position:relative;cursor:pointer;background-color:grey;color:white;width:1px;height:1px;border-radius:100%;font-size:70%;display:flex;align-items:center;justify-content:center;}
 .signin:hover
 {
 	color:red;
@@ -571,4 +583,13 @@ max-width:100%;
 	width:100%;
 	margin-top:2%;
 	margin-bottom:3%;
+}
+
+img
+{
+	background-image: url('../css/imgs/loading.gif');
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 100%;
+	height: 100%;
 }

@@ -36,15 +36,7 @@ if(isset($_POST['change_password_btn']))
 				$errors[]='Current password do not match';
 			}
 			
-		}
-
-		if (isset($_GET['success']) && empty ($_GET['success']))
-		{
-			$success[]= 'Your password has been changed successfully.';
-			output_success($success);
-		}
-			else
-			{
+		}		
 				if(empty($_POST)=== false && empty($errors) === true)
 				{
 					change_password($session_user_id, $_POST['password']);
@@ -54,7 +46,6 @@ if(isset($_POST['change_password_btn']))
 				{
 					output_errors($errors);
 				}
-			}
 }
 
 ?>
